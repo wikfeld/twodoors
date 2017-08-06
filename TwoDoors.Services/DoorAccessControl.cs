@@ -28,7 +28,9 @@ namespace TwoDoors.Services
             // a token was found
             if(token != null) { return true; }
 
-            // reject otherwise
+            // reject otherwise, no distinction is made between 
+            // * there is a revoked token
+            // * there are no tokens
             return false;
         }
     }
