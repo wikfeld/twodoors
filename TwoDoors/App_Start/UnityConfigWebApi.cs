@@ -1,5 +1,7 @@
 using Microsoft.Practices.Unity;
 using System.Web.Http;
+using TwoDoors.Models;
+using TwoDoors.Services;
 using Unity.WebApi;
 
 namespace TwoDoors
@@ -8,13 +10,12 @@ namespace TwoDoors
     {
         public static void RegisterComponents()
         {
-			var container = new UnityContainer();
-            
-            // register all your components with the container here
-            // it is NOT necessary to register your controllers
-            
-            // e.g. container.RegisterType<ITestService, TestService>();
-            
+            var container = new UnityContainer();
+
+            container.RegisterType<IDoorAccessControl, DoorAccessControl>();
+            container.RegisterInstance<IDoorRepository>(new TwoDoorsRepository(), new ContainerControlledLifetimeManager());
+            container.RegisterInstance<IDoorAccessTokenRepository>(new StaticDataFactory().CreateTokenRepository(), new ContainerControlledLifetimeManager());
+
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }

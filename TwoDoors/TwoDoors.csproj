@@ -242,6 +242,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TwoDoors.Models\TwoDoors.Models.csproj">
+      <Project>{14AE2B94-FD8C-4CD9-8A93-F3464929FC04}</Project>
+      <Name>TwoDoors.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TwoDoors.Services\TwoDoors.Services.csproj">
       <Project>{aea57752-4042-494d-bfc5-7766718d6f75}</Project>
       <Name>TwoDoors.Services</Name>

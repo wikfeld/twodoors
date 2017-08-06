@@ -54,12 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllDoorsCanBeOpen.cs" />
+    <Compile Include="DoorAccessControl.cs" />
     <Compile Include="DoormanController.cs" />
+    <Compile Include="IDoorAccessControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TwoDoors.Models\TwoDoors.Models.csproj">
+      <Project>{14AE2B94-FD8C-4CD9-8A93-F3464929FC04}</Project>
+      <Name>TwoDoors.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoDoors.Tests", "TwoDoors.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoDoors.Services", "TwoDoors.Services\TwoDoors.Services.csproj", "{AEA57752-4042-494D-BFC5-7766718D6F75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoDoors.Models", "TwoDoors.Models\TwoDoors.Models.csproj", "{14AE2B94-FD8C-4CD9-8A93-F3464929FC04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AEA57752-4042-494D-BFC5-7766718D6F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEA57752-4042-494D-BFC5-7766718D6F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEA57752-4042-494D-BFC5-7766718D6F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14AE2B94-FD8C-4CD9-8A93-F3464929FC04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14AE2B94-FD8C-4CD9-8A93-F3464929FC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14AE2B94-FD8C-4CD9-8A93-F3464929FC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14AE2B94-FD8C-4CD9-8A93-F3464929FC04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
