@@ -25,7 +25,11 @@ namespace TwoDoors.Services
         [Route("door/{doorId}/open/{secret}")]
         public IHttpActionResult Open(int doorId, string secret)
         {
+            // perform access control
             var result = _accessControl.CanOpen(doorId, secret);
+            // open the door           
+            
+            // log the access
             _accessLog.Add(doorId, result);
             return Ok(result);
         }

@@ -3,13 +3,16 @@ using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using TwoDoors.Models;
 using TwoDoors.Services;
+using System.Web.Http;
+using Unity.WebApi;
+using System.Web.Mvc;
 
 namespace TwoDoors.App_Start
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.
     /// </summary>
-    public class UnityConfigMvc
+    public class UnityConfiguration
     {
         #region Unity Container
         private static Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
@@ -25,7 +28,7 @@ namespace TwoDoors.App_Start
         public static IUnityContainer GetConfiguredContainer()
         {
             return container.Value;
-        }
+        }       
         #endregion
 
         /// <summary>Registers the type mappings with the Unity container.</summary>
