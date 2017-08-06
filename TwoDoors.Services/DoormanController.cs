@@ -22,7 +22,7 @@ namespace TwoDoors.Services
         } 
 
         [HttpGet]
-        [Route("open/{doorId}/token/{secret}")]
+        [Route("door/{doorId}/open/{secret}")]
         public IHttpActionResult Open(int doorId, string secret)
         {
             var result = _accessControl.CanOpen(doorId, secret);
@@ -31,7 +31,7 @@ namespace TwoDoors.Services
         }
 
         [HttpGet]
-        [Route("log/{doorId}")]
+        [Route("door/{doorId}/log")]
         public IHttpActionResult ViewLog(int doorId)
         {
             return Ok(_accessLog.GetAll(doorId));

@@ -1,6 +1,8 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using TwoDoors.Models;
+using TwoDoors.Services;
 
 namespace TwoDoors.App_Start
 {
@@ -32,11 +34,13 @@ namespace TwoDoors.App_Start
         /// change the defaults), as Unity allows resolving a concrete type even if it was not previously registered.</remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
-            // container.LoadConfiguration();
+            container.RegisterType<ITimeProvider, SystemTime>();
+            container.RegisterType<IDoorAccessControl, DoorAccessControl>();
+            container.RegisterInstance<IDoorRepository>(new TwoDoorsRepository(), new ContainerControlledLifetimeManager());
+            container.RegisterInstance(new StaticDataFactory().CreateTokenRepository(), new ContainerControlledLifetimeManager());
+            container.RegisterType<IAccessLogRepository>(new ContainerControlledLifetimeManager(),
+                new InjectionFactory(c => new StaticAccessLogRepository(c.Resolve<ITimeProvider>())));
 
-            // TODO: Register your types here
-            // container.RegisterType<IProductRepository, ProductRepository>();
         }
     }
 }

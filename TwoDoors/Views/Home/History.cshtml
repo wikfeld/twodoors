@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TwoDoors.Models.AccessLogEntry>
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>History</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DoorId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessTimestamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessGranted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoorId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessTimestamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessGranted)
+        </td>       
+    </tr>
+}
+
+</table>

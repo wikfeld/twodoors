@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TwoDoors.Models.Door>
+
+@{
+    ViewBag.Title = "Doors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Doors</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @using (Html.BeginForm("OpenDoor", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Hidden("doorId", item.Id)
+                    <input type="password" name="secret" id="secret" />
+                    <input type="submit" value="Open" />
+                }               
+            </td>
+        </tr>
+    }
+</table>
