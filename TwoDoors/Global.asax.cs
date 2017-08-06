@@ -14,6 +14,7 @@ namespace TwoDoors
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            UnityConfigWebApi.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
