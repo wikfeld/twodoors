@@ -24,5 +24,12 @@ namespace TwoDoors.Models
         /// <param name="doorId"></param>
         /// <returns></returns>
         IEnumerable<AccessLogEntry> GetAll(int doorId);
+
+        // The clear method is here to reset the repository 
+        // since the application will be running with a long lived in-memory implementation.
+        /// <summary>
+        /// Clears the log.
+        /// </summary>
+        void Clear();
     }
 }
