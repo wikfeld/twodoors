@@ -13,13 +13,13 @@ namespace TwoDoors.Controllers
     public class HomeController : Controller
     {
         private IDoorRepository _doors;
-        private IAccessLogRepository _history;
+        private IHistoricalEventsRepository _events;
         private IDoorAccessControl _access;
 
-        public HomeController(IDoorRepository doors, IAccessLogRepository history, IDoorAccessControl access)
+        public HomeController(IDoorRepository doors, IHistoricalEventsRepository events, IDoorAccessControl access)
         {
             _doors = doors;
-            _history = history;
+            _events = events;
             _access = access;
         }
 
@@ -35,7 +35,7 @@ namespace TwoDoors.Controllers
 
         public ActionResult History()
         {
-            return View(_history.GetAll(1).Concat(_history.GetAll(2)).OrderByDescending(x=>x.AccessTimestamp));
+            return View(_events.GetAll(1).Concat(_events.GetAll(2)).OrderByDescending(x=>x.AccessTimestamp));
         }
 
         public async Task<ActionResult> OpenDoor(int doorId, string secret)

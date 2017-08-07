@@ -9,7 +9,7 @@ namespace TwoDoors.Models
     /// <summary>
     /// Contract to keep a log of when doors are open
     /// </summary>
-    public interface IAccessLogRepository
+    public interface IHistoricalEventsRepository
     {
         /// <summary>
         /// Log an access attempt and its success
@@ -23,7 +23,7 @@ namespace TwoDoors.Models
         /// </summary>
         /// <param name="doorId"></param>
         /// <returns></returns>
-        IEnumerable<AccessLogEntry> GetAll(int doorId);
+        IEnumerable<HistoricalEvent> GetAll(int doorId);
 
         // The clear method is here to reset the repository 
         // since the application will be running with a long lived in-memory implementation.

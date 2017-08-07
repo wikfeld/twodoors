@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TwoDoors.Models
 {
-    public class StaticAccessLogRepository : IAccessLogRepository
+    public class StaticHistoricalEventsRepository : IHistoricalEventsRepository
     {
-        private List<AccessLogEntry> _entries = new List<AccessLogEntry>();
+        private List<HistoricalEvent> _entries = new List<HistoricalEvent>();
         private int _nextId;
         private ITimeProvider _time;
 
-        public StaticAccessLogRepository(ITimeProvider time)
+        public StaticHistoricalEventsRepository(ITimeProvider time)
         {
             _time = time;
             _nextId = 1;
@@ -20,7 +20,7 @@ namespace TwoDoors.Models
 
         public void Add(int doorId, bool accessGranted)
         {
-            var entry = new AccessLogEntry()
+            var entry = new HistoricalEvent()
             {
                 AccessGranted = accessGranted,
                 AccessTimestamp = _time.CurrentTime(),
@@ -36,7 +36,7 @@ namespace TwoDoors.Models
             _entries.Clear();
         }
 
-        public IEnumerable<AccessLogEntry> GetAll(int doorId)
+        public IEnumerable<HistoricalEvent> GetAll(int doorId)
         {
             return _entries
                 .Where(x => x.DoorId == doorId)
