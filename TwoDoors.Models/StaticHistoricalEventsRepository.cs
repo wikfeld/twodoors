@@ -39,8 +39,7 @@ namespace TwoDoors.Models
         public IEnumerable<HistoricalEvent> GetAll(int doorId)
         {
             return _entries
-                .Where(x => x.DoorId == doorId)
-                .OrderByDescending(x => x.AccessTimestamp);
+                .Where(x => x.DoorId == doorId);               
         }
     }
 }
