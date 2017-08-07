@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TwoDoors.Models
 {
-    public class AccessLogEntry
+    /// <summary>
+    /// A record of when a door has been accessed.
+    /// </summary>
+    public class HistoricalEvent
     {
         /// <summary>
         /// Log entry identifier.
@@ -21,7 +24,7 @@ namespace TwoDoors.Models
         /// </summary>
         public DateTime AccessTimestamp { get; set; }
         /// <summary>
-        /// Did the access attempt resulted in access granted? Or was it rejected?
+        /// Did the access attempt resulted in access granted?
         /// </summary>
         public bool AccessGranted { get; set; }
     }

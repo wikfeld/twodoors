@@ -41,8 +41,8 @@ namespace TwoDoors.App_Start
             container.RegisterType<IDoorAccessControl, DoorAccessControl>();
             container.RegisterInstance<IDoorRepository>(new TwoDoorsRepository(), new ContainerControlledLifetimeManager());
             container.RegisterInstance(new StaticDataFactory().CreateTokenRepository(), new ContainerControlledLifetimeManager());
-            container.RegisterType<IAccessLogRepository>(new ContainerControlledLifetimeManager(),
-                new InjectionFactory(c => new StaticAccessLogRepository(c.Resolve<ITimeProvider>())));
+            container.RegisterType<IHistoricalEventsRepository>(new ContainerControlledLifetimeManager(),
+                new InjectionFactory(c => new StaticHistoricalEventsRepository(c.Resolve<ITimeProvider>())));
 
         }
     }

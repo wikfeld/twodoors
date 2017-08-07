@@ -40,15 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccessLogEntry.cs" />
+    <Compile Include="HistoricalEvent.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="DoorAccessToken.cs" />
-    <Compile Include="IAccessLogRepository.cs" />
+    <Compile Include="IHistoricalEventsRepository.cs" />
     <Compile Include="IDoorAccessTokenRepository.cs" />
     <Compile Include="IDoorRepository.cs" />
     <Compile Include="ITimeProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaticAccessLogRepository.cs" />
+    <Compile Include="StaticHistoricalEventsRepository.cs" />
     <Compile Include="TwoDoorsRepository.cs" />
     <Compile Include="StaticTokenRepository.cs" />
   </ItemGroup>

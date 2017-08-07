@@ -10,11 +10,11 @@ namespace TwoDoors.WebApi
     [RoutePrefix("api/admin")]
     public class AdminController : ApiController
     {
-        private IAccessLogRepository _accessLog;
+        private IHistoricalEventsRepository _events;
 
-        public AdminController(IAccessLogRepository accessLog)
+        public AdminController(IHistoricalEventsRepository events)
         {
-            _accessLog = accessLog;
+            _events = events;
         }
 
         [HttpGet]
@@ -22,7 +22,7 @@ namespace TwoDoors.WebApi
         public IHttpActionResult Reset()
         {
             // clear the historical events
-            _accessLog.Clear();
+            _events.Clear();
             return Ok();
         }
     }

@@ -13,12 +13,12 @@ namespace TwoDoors.Services
     public class DoormanController : ApiController
     {
         private IDoorAccessControl _accessControl;
-        private IAccessLogRepository _accessLog;
+        private IHistoricalEventsRepository _events;
 
-        public DoormanController(IDoorAccessControl accessControl, IAccessLogRepository accessLog)
+        public DoormanController(IDoorAccessControl accessControl, IHistoricalEventsRepository events)
         {
             _accessControl = accessControl;
-            _accessLog = accessLog;
+            _events = events;
         } 
 
         [HttpGet]
@@ -30,15 +30,15 @@ namespace TwoDoors.Services
             // open the door           
             
             // log the access
-            _accessLog.Add(doorId, result);
+            _events.Add(doorId, result);
             return Ok(result);
         }
 
         [HttpGet]
-        [Route("door/{doorId}/log")]
-        public IHttpActionResult ViewLog(int doorId)
+        [Route("door/{doorId}/events")]
+        public IHttpActionResult ViewEvents(int doorId)
         {
-            return Ok(_accessLog.GetAll(doorId));
+            return Ok(_events.GetAll(doorId));
         }
     }
 }
