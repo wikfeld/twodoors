@@ -21,16 +21,21 @@ namespace TwoDoors.Services
         public bool CanOpen(int doorId, string secret)
         {
             var door = _doors.Get(doorId);
-            // door cannot be found and cannot be open
+
+            // cannot open a door that is not found
             if(door == null) { return false; }
 
             var token = _tokens.Get(doorId, secret);
-            // a token was found
-            if(token != null) { return true; }
 
-            // reject otherwise, no distinction is made between 
-            // * there is a revoked token
-            // * there are no tokens
+            // deny access when the token is revoked
+            // deny access when the token is not for this door
+            // deny access if the secret does not match token
+            if(token != null 
+                && !token.Revoked 
+                && token.DoorId == doorId
+                && token.Secret == secret) { return true; }
+
+            // reject otherwise
             return false;
         }
     }
