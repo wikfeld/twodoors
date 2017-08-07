@@ -31,6 +31,11 @@ namespace TwoDoors.Models
             _nextId = _nextId + 1;
         }
 
+        public void Clear()
+        {
+            _entries.Clear();
+        }
+
         public IEnumerable<AccessLogEntry> GetAll(int doorId)
         {
             return _entries
